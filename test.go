@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/carmark/pseudo-terminal-go/terminal"
+	"pseudo-terminal-go/terminal"
+	//"github.com/carmark/pseudo-terminal-go/terminal"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 		panic(err)
 	}
 	defer term.ReleaseFromStdInOut() // defer this  
-	fmt.Println("Ctrl-D to break")
+	fmt.Println("Ctrl-Q to break")
 	term.SetPrompt("root@hello: # ")
 	line, err:= term.ReadLine()
 	for {

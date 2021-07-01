@@ -124,7 +124,8 @@ func NewTerminal(c io.ReadWriter, prompt string) *Terminal {
 
 const (
 	KeyCtrlC     = 3
-	KeyCtrlD     = 4
+	KeyCtrlQ     = 17
+	//KeyCtrlQ     = 5
 	KeyEnter     = '\r'
 	KeyEscape    = 27
 	KeyBackspace = 127
@@ -402,7 +403,7 @@ func (t *Terminal) handleKey(key int) (line string, ok bool) {
 		t.cursorY = 0
 		t.maxLine = 0
 		t.historyIdx = len(t.history) + 1
-	case KeyCtrlD:
+	case KeyCtrlQ:
 		// add 'exit' to the end of the line
 		ok = true
 		if len(t.line) == 0 {
@@ -623,7 +624,7 @@ func (t *Terminal) readLine() (line string, err error) {
 			}
 
 			line, lineOk = t.handleKey(key)
-			if key == KeyCtrlD && lineOk == true {
+			if key == KeyCtrlQ && lineOk == true {
 				return "", io.EOF
 			}
 			if key == KeyCtrlC {
