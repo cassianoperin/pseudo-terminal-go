@@ -1,12 +1,17 @@
-# pseudo-terminal-go
+# Pseudo Terminal
 
-## Install
-```
-go get github.com/carmark/pseudo-terminal-go/terminal
-```
+Library forked from "github.com/gfyrag/pseudo-terminal-go" to change a few techical details.
 
-## Run a test
-```
-go build test.go
-./test
-```
+* Currently project using this library:
+
+https://github.com/cassianoperin/6502_console
+
+## Usage
+
+### Import Library:
+
+`import "github.com/cassianoperin/pseudo-terminal-go/terminal"`
+
+### Run the command Interpreter function
+
+`CommandInterpreter()`
